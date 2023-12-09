@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_example4/view/my_home_page.dart';
+import 'package:riverpod_example5/view/my_home_page.dart';
 
 void main() {
   runApp(
