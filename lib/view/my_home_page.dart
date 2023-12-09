@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_example5/controller/countering.dart';
 
-
 final counterProvider= StateNotifierProvider<Countering, int>((ref) => Countering(0));
 //Yukarıdaki tanımlamayı şu kodlarla da yapabiliriz:
 //final referenceValue=StateProvider((ref) => 0);
@@ -55,8 +54,39 @@ class MyHomePage extends ConsumerWidget {
                   ),
                 ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: ()=> counterRead.decrease(),
+              child: const Text(
+                'Press to decrease',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.black,
+                ),
+              ),
+            ),
           ],
         ),
+      ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FloatingActionButton(
+            backgroundColor: Colors.deepOrange,
+            tooltip: 'Press to decrease',
+            onPressed: ()=> counterRead.decrease(),
+            child: const Icon(Icons.remove),
+          ),
+          const SizedBox(width: 20,),
+          FloatingActionButton(
+            backgroundColor: Colors.deepOrange,
+            tooltip: 'Press to increment',
+            onPressed: ()=> counterRead.increment(),
+            child: const Icon(Icons.add),
+          ),
+        ],
       ),
     );
   }
